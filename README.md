@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/SBA_Banner.png" width="700" />
+  <img src="Assets/SBA_Banner.png" width="700" />
 </p>
 
 
