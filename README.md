@@ -1,9 +1,7 @@
-<p align="center">
-  <img src="Assets/SBA_Banner.png" width="700" />
-</p>
 
 
-# SBA Digital LAB
+
+# SBA Deterministic LAB
 
 **Experimental systems. Modular infrastructure. Autonomous mechanics.**
 
