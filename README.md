@@ -5,7 +5,7 @@
 
 **Experimental systems. Modular infrastructure. Autonomous mechanics.**
 
-SBA Digital LAB is the research and engineering environment of  
+SBA Deterministic LAB is the research and engineering environment of  
 **SQUNOHOLIX BRAND ASSOCIATION** — a place where architectural concepts  
 are designed, broken, rebuilt, and tested before becoming production systems.
 
@@ -18,7 +18,7 @@ Nothing leaves this LAB until it proves itself.
 
 ## 🜁 Purpose
 
-SBA Digital LAB exists to design and test **autonomous system architecture**.
+SBA Deterministic LAB exists to design and test **autonomous system architecture**.
 
 The focus is not on features or applications, but on **foundational mechanisms**:
 
