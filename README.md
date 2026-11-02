@@ -266,7 +266,7 @@ It demonstrates deterministic, state-driven execution through deployed contracts
 
 Production repository:
 
-`https://github.com/.../GENESIScoin`
+[github.com/SQunoholixBrandAssociation/GENESIScoin](https://github.com/SQunoholixBrandAssociation/GENESIScoin)
 
 ---
 
