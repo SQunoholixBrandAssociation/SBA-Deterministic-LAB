@@ -182,6 +182,59 @@ Some modules exist specifically to test whether an architectural assumption surv
 
 ---
 
+## 🜅 Witness Core V1
+
+**Witness Core** is the evidence layer of SBA | D_LAB. It does three things:
+- records what a Telegram bot observes in the SBA community;
+- derives typed semantic events from those observations;
+- rebuilds participation state from those events.
+
+Evidence recording, semantic processing and deterministic reconstruction are the existing foundation. The frozen hardening specification sets this as its entry gate for any later Proof Season use (translated from Polish):
+
+> the same raw input + the same `processor_version` → the same semantic evidence → the same reconstructed state.
+
+### Status
+
+| Item | Status | Basis |
+| --- | --- | --- |
+| Witness Core V1 (hardened build) | **Operational.** In production since the cutover of 8 October 2026. | Project records and production checks; later operational state is owner-reported |
+| T-2 (cutover and hardening programme) | **CLOSED.** Formally closed by SQUNO on 1 November 2026. | Stage F operator transcript; the closure record was reconstructed from it, and its hash matches |
+| Ruleset 8 (R01–R56) | **Frozen specification**, 6 October 2026 | T-2 specification |
+| Proof Season interaction protocol | **Being finalized**, not yet published | Owner statement |
+| Proof Season implementation | **Not yet confirmed as operational.** No Season implementation is recorded. Proof Season is the next development stage. | Status records of 8 October 2026 (T-4/T-5 not started); SQUNO's closure attestation (not started under T-2) |
+
+The closure history keeps its HOLD and INCONCLUSIVE results, and the documentation keeps its open limitations. This is an owner-authorized documentation release with its evidence limitations disclosed. KORKI, an AI reviewer, reviewed documentation drafts RC3 and RC4; both received HOLD. The RC4 verdict is *owner-reported*: its review record is not in the evidence index. The published release has not yet been independently reviewed. It is not an external audit or certification. See [LIMITATIONS.md](projects/witness-core/LIMITATIONS.md).
+
+### Architecture direction
+
+| Layer | Role | Status |
+| --- | --- | --- |
+| 1. Raw Evidence | Immutable source records with the identity `(bot_id, update_id)`. The database enforces append-only storage. | Deployed |
+| 2. Semantic Facts | Append-only derived events, each bound to a `processor_version` and its lineage | Deployed |
+| 3. Projections & Reports | Participation state, rebuilt by a pure reducer over the semantic events | Deployed |
+| 4. Proof Season — rules and coordination | Applies season rules (Ruleset 8) to the recorded evidence | **Planned — not deployed** |
+
+**Witness records. Proof Season applies rules.**
+
+The fourth layer extends the existing infrastructure but stays logically separate from Witness Core's evidence authority:
+- Dependencies run one way. Season logic may read Witness evidence; Witness never depends on Season logic.
+- No eligibility, reward or season rule lives in Witness Core.
+
+### Documentation
+
+| Document | Contents |
+| --- | --- |
+| [README.md](projects/witness-core/README.md) | Overview, status, timeline, who did what |
+| [ARCHITECTURE.md](projects/witness-core/ARCHITECTURE.md) | Components, data flow, invariants, design accountability |
+| [IMPLEMENTATION_STATUS.md](projects/witness-core/IMPLEMENTATION_STATUS.md) | What exists, what is verified, what is only specified or planned |
+| [T2_CLOSURE.md](projects/witness-core/T2_CLOSURE.md) | Engineering account of T-2, including its HOLDs and their resolution |
+| [EVIDENCE_INDEX.md](projects/witness-core/EVIDENCE_INDEX.md) | Evidence registry, what each claim rests on, and its limits |
+| [LIMITATIONS.md](projects/witness-core/LIMITATIONS.md) | Limitations, open findings, assurance levels |
+
+The evidence packs, Telegram data and production details stay private. The documentation publishes summaries and SHA256 identities only.
+
+---
+
 ## 🜆 Experimental ≠ Unstructured
 
 Experimental does not mean undefined.
@@ -236,6 +289,7 @@ Documentation: **in progress**
 The relationship is intentional:
 
 **D_LAB → research, architecture, experimentation**  
+**Witness Core → evidence recording and deterministic reconstruction**  
 **GENESIScoin → deployed execution and runtime evidence**  
 **PBP_A → verification and inspection**
 
