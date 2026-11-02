@@ -203,7 +203,24 @@ Evidence recording, semantic processing and deterministic reconstruction are the
 | Proof Season interaction protocol | **Being finalized**, not yet published | Owner statement |
 | Proof Season implementation | **Not yet confirmed as operational.** No Season implementation is recorded. Proof Season is the next development stage. | Status records of 8 October 2026 (T-4/T-5 not started); SQUNO's closure attestation (not started under T-2) |
 
-The closure history keeps its HOLD and INCONCLUSIVE results, and the documentation keeps its open limitations. This is an owner-authorized documentation release with its evidence limitations disclosed. KORKI, an AI reviewer, reviewed documentation drafts RC3 and RC4; both received HOLD. The RC4 verdict is *owner-reported*: its review record is not in the evidence index. The published release has not yet been independently reviewed. It is not an external audit or certification. See [LIMITATIONS.md](projects/witness-core/LIMITATIONS.md).
+The closure history keeps its HOLD and INCONCLUSIVE results, and the documentation keeps its open limitations. This is an owner-authorized documentation release with its evidence limitations disclosed. KORKI (Reviewer & Solution Support) reviewed documentation drafts RC3 and RC4; both received HOLD. The RC4 verdict is *owner-reported*: its review record is not in the evidence index. The published release has not yet been independently reviewed. It is not an external audit or certification. See [LIMITATIONS.md](projects/witness-core/LIMITATIONS.md).
+
+### Witness Core responsibility
+
+Witness Core follows a founder-led, AI-assisted engineering method. This responsibility structure covers Witness Core.
+
+| Responsibility | Party |
+| --- | --- |
+| Project owner & lead architect | **SQUNO** |
+| Build / engineering | **SQUNO + ASTER** |
+| Review / verification | **SQUNO + KORKI** |
+| Release authority | **SQUNO** |
+
+- **SQUNO — Founder, Lead Architect & Project Owner.** Architecture, technical direction, engineering oversight, owner review, decisions, authorization and final acceptance.
+- **ASTER — Builder Support.** An AI support system. Implementation, development and engineering assistance.
+- **KORKI — Reviewer & Solution Support.** An AI support system. Technical review, verification assistance, analysis and solution recommendations.
+
+Shared responsibility does not mean identical contributions. The Witness Core documents record who performed each action, from the evidence. For example, ASTER implemented the hardened Witness Core code changes under SQUNO's architectural direction and authorization. Neither AI support system is a project owner or an independent authority.
 
 ### Architecture direction
 

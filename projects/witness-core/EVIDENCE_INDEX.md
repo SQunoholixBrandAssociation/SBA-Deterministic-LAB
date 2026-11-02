@@ -15,7 +15,7 @@
 | Checked by Stage G, not examined | Stage G checked the artifact on the production host, as the operator transcript shows. The artifact itself was not examined here. |
 | Not examined | Known only by the identity printed in an operator transcript |
 | Owner attestation | A recorded decision or attestation by SQUNO |
-| Builder self-report | The AI builder's own account. This is the weakest basis. |
+| Builder self-report | ASTER's own account (builder notes). This is the weakest basis. |
 
 **Class** — the assurance class:
 
@@ -40,9 +40,10 @@ The two November 2026 designations are deliberately weaker than `PRIVATE_VERIFIE
 No sanitized public derivative has been produced. If one is produced, it will get its own hash and a "derivative" label.
 
 **Assurance level:**
-- **KORKI** is an AI reviewer, used as a separate review path inside the project.
-- **ASTER** is the AI that built the kits and drafted this documentation.
-- Neither is an external auditor. Nothing here is a certification.
+- **KORKI** (Reviewer & Solution Support) is an AI support system. It is used as a review path separate from ASTER's implementation work.
+- **ASTER** (Builder Support) is an AI support system. It implemented the kits under SQUNO's direction and drafted this documentation.
+- **SQUNO** makes the owner-level decisions and gives final acceptance. The records do not show SQUNO re-running KORKI's checks.
+- Neither ASTER nor KORKI is an external auditor. Nothing here is a certification.
 
 ## Registry
 
@@ -63,7 +64,7 @@ No sanitized public derivative has been produced. If one is produced, it will ge
 | EV-13 | 2026-10-07 | S0 | S0 kit v2.1.0 | `073b97dfcf31934782cf55590277b60b06bf6d6e3effc226a94fcad4a303e07e` | Kit | S0 freeze scope | Original examined | Kit (needs private inputs) | `PRIVATE_VERIFIED` |
 | EV-14 | ≤ 2026-10-12 | Phase 4 | Migration 011e source | `fc6802085f55ebe294b7a8aefa995c4c2298c5b78cd964c8899d5753bcd9bc05` | Applied 2026-10-12 | Database integrity controls; matches the closure-draft binding | Original examined | Source file | `PRIVATE_VERIFIED` |
 | EV-15 | 2026-10-13 | Phase 4 | Pre-continuation diagnostic (production transcript) | `b46baea620f9936c23e22c7c2c21caea06068704293fedd0928e09775b1e2cf5` | Base `GATE=HOLD`, `TC1=PASS`, 011e in ledger | Phase 4 base; 011e applied | Original examined | Not publicly reproducible | `PRIVATE_VERIFIED` |
-| EV-16 | 2026-10-12 | All | Builder notes RC10.3 (AI builder) | `4b98fa0a2d8b66a94b8fd480f4392cd9f3822841e71dc84b7383689c4f681271` | — | Build history; DEP-11a decision; defect record | Builder self-report (original examined) | Builder's own account | `PRIVATE_VERIFIED` (as builder self-report) |
+| EV-16 | 2026-10-12 | All | Builder notes RC10.3 (ASTER) | `4b98fa0a2d8b66a94b8fd480f4392cd9f3822841e71dc84b7383689c4f681271` | — | Build history; DEP-11a decision; defect record | Builder self-report (original examined) | Builder's own account | `PRIVATE_VERIFIED` (as builder self-report) |
 | EV-17 | 2026-11-01 | Closure | Closure kit r2 (archive) | `c342c54a18d47fc32b0fbc1676246fe3ea4f60d2f294b93f3205a24b70df9215` | Kit | Stage G / Stage F logic | Original examined | Kit (needs private packs) | `PRIVATE_VERIFIED` |
 | EV-18 | 2026-11-01 | Closure | KORKI review of closure kit r2 | `159f8e69703360630c8a1b8759598fba4351468f373918920082ca0579717e23` | `PASS_FOR_STAGE_G_WITH_PRODUCTION_EVIDENCE_PENDING` | Review scope and limits | Original examined | Review record | `PRIVATE_VERIFIED` |
 | EV-19 | 2026-11-01 | Stage G | Closure record draft. It was pre-rendered and reviewed, and production Stage G wrote the same bytes (hash printed in EV-26). | `c482b4d503edc1fbaf42d7c8147d17350e87313e2a71a1680d44d6cad7532ad7` | Draft; 12 lines `PENDING` | Closure-matrix content | Original examined (pre-rendered draft). The production copy is shown equal only by the transcript (EV-26); it was not examined. | Document | `PRIVATE_VERIFIED`; production equality shown by EV-26 |
@@ -94,16 +95,16 @@ Apart from EV-07, EV-09 and EV-14, the artifacts behind these hashes were not op
 
 ## Roles per material artifact
 
-This table shows only roles that an examined artifact states.
+This table shows only roles that an examined artifact states. "ASTER" is the project identity of the builder. Builder records from before 13 October 2026 name the same builder by its model name.
 
 | ID | created_by | verified_by | reviewed_by | approved_by |
 | --- | --- | --- | --- | --- |
 | EV-06/07 | Run by the project operator. The harness author is not named in the pack. | Phase 1 runner and self-test | Not named in the pack (harness files matched a pinned "reviewed" checksum list) | — |
 | EV-09 | — | — | — | SQUNO ("Authority: SQUNO") |
 | EV-10 | Bylined to SQUNO. The drafter of the text is not established. | — | — | SQUNO (lifecycle "FROZEN, SQUNO 2026-10-06") |
-| EV-14 | AI builder (Class A candidate; builder notes) | Phase 2 suite; P1/P9 checks (project records) | Reviewer agents and KORKI | SQUNO (Phase 4 authorization) |
-| EV-17 | AI builder ("Builder: Aster, 2026-11-01") | Builder's local fixture tests (builder labels them "not evidence") | KORKI (EV-18) | — |
-| EV-19 | Rendered in advance by the AI builder from a fixture; written in production by Stage G | Stage G (EV-26) | KORKI: expected draft, before execution; after execution, KORKI checked the Stage G transcript | SQUNO at Stage F (EV-27) |
+| EV-14 | ASTER (Class A candidate; builder notes) | Phase 2 suite; P1/P9 checks (project records) | Unattributed AI reviewers and KORKI | SQUNO (Phase 4 authorization) |
+| EV-17 | ASTER ("Builder: Aster, 2026-11-01") | Builder's local fixture tests (builder labels them "not evidence") | KORKI (EV-18) | — |
+| EV-19 | Rendered in advance by ASTER from a fixture; written in production by Stage G | Stage G (EV-26) | KORKI: expected draft, before execution; after execution, KORKI checked the Stage G transcript | SQUNO at Stage F (EV-27) |
 | EV-25 | Stage F, run by the operator; reconstructed by KORKI from EV-27 | Hash recomputed by ASTER and by KORKI | KORKI (EV-28; after execution; second-path AI review of operator-supplied output, not an audit) | **SQUNO** (`T2_CLOSED by SQUNO`) |
 
 ## Not published

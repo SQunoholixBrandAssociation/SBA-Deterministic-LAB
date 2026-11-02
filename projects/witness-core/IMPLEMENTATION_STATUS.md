@@ -93,13 +93,21 @@ Reviewers should weigh these accordingly.
 
 ## 6. Engineering ownership and accountability
 
+**Project-level responsibility.**
+- Project owner & lead architect: **SQUNO**.
+- Build / engineering: **SQUNO + ASTER**.
+- Review / verification: **SQUNO + KORKI**.
+- Release authority: **SQUNO**.
+
+The rows below record who performed each activity.
+
 | Responsibility | Party | Basis |
 | --- | --- | --- |
 | Founder, Lead Architect & Project Owner; scope; recorded design decisions; freezes; authorizations; acceptance; release authority | **SQUNO** | Decision and authorization records |
 | Production operation | Project operator under SQUNO's written authorization. The builder notes name SQUNO as the operator. | Authorization records; builder notes |
-| Hardened application code, migrations 011a–011e, tests, kits, verifiers, operator packages | AI builder (Claude; named ASTER/"Aster" from 2026-10-13) | Builder notes |
+| Hardened application code, migrations 011a–011e, tests, kits, verifiers, operator packages | ASTER (Builder Support), under SQUNO's architectural direction and authorization. Builder records use the name from 2026-10-13. Earlier ones name the same builder by its model name. | Builder notes |
 | Pre-hardening application code | Not established | — |
-| Review of T-2 kits before use | KORKI (AI reviewer) from 2026-10-12; unnamed separate reviewer agents earlier | Review records |
+| Review of T-2 kits before use | KORKI (Reviewer & Solution Support) from 2026-10-12; unattributed AI reviewers earlier | Review records |
 | Future ownership of T-4, T-5 and Proof Season | SQUNO as project owner | Owner statement |
 
-These documents make no claim that SQUNO wrote the code. No external audit took place, and no corporate office is claimed.
+These documents make no claim that SQUNO wrote the code or repeated KORKI's checks. No external audit took place, and no corporate office is claimed.

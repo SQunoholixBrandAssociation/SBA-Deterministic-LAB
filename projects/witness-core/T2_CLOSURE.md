@@ -107,11 +107,11 @@ Each pack must carry a review record from a reviewer who is not the builder.
 | Base run | 2026-10-12 | `TC1=PASS` (under DEP-11a); 011e committed at step 4.3; gate **HOLD** with two reasons (13 October production diagnostic, examined) |
 | Continuation | 2026-11-01 | Steps 4.6, 4.7 and 4.8 only, on the unchanged HOLD base. Gate PASS with no REASON, as checked by Stage G (operator transcript). The pack itself was not opened. |
 
-**Base-run HOLD reasons.** The REASON lines come from the 13 October production diagnostic. The causes are the builder's diagnosis, from the builder notes.
-- **4.6:** the log-control step did not verify. Builder's diagnosis: a log-file permission precondition in the kit.
-- **4.7:** the PR-5 full database dump (input to the full-history replay) failed. It was taken as the service role. Builder's diagnosis: after 011e that role no longer has the privileges a full dump needs.
+**Base-run HOLD reasons.** The REASON lines come from the 13 October production diagnostic. The causes are ASTER's diagnosis, from its builder notes.
+- **4.6:** the log-control step did not verify. ASTER's diagnosis: a log-file permission precondition in the kit.
+- **4.7:** the PR-5 full database dump (input to the full-history replay) failed. It was taken as the service role. ASTER's diagnosis: after 011e that role no longer has the privileges a full dump needs.
 
-The builder diagnosed both as defects in the kit, not in Witness Core, and recorded that its own local validation had missed them.
+ASTER diagnosed both as defects in the kit, not in Witness Core, and recorded that its own local validation had missed them.
 
 **The continuation:**
 - **What the kit specifies.** By the design of the reviewed continuation kit (operator package):
@@ -178,7 +178,7 @@ The closure record says this "is not a literal GATE=PASS of the base pack". **Th
 | Date | Step | Who |
 | --- | --- | --- |
 | 2026-10-11 | Production W showed only one multi-update batch. SQUNO set the DEP-11a floors and required a formal INCONCLUSIVE pack as provenance. That pack was sealed the same day. | SQUNO |
-| — | The mechanism (extra ordering checks, kit floors, the amendment format) | Designed and implemented by the AI builder (RC9); reviewed by KORKI (builder notes) |
+| — | The mechanism (extra ordering checks, kit floors, the amendment format) | Designed and implemented by ASTER (RC9); reviewed by KORKI (builder notes) |
 | 2026-10-12 | The hash-bound amendment record was written from the pack's sealed numbers and independently reviewed | — |
 
 **The floors DEP-11a sets:**
@@ -300,20 +300,22 @@ As far as the operator transcript can show it, the reconstruction is byte-identi
 | 2026-09-26 | Phase 1 gate `PASS_WITH_DEFERRED_P8` | Executed, verified | Project operator | Production pack (examined) |
 | 2026-10-06 | D3 gate HOLD, then decision `CLOSED_WITH_CUTOVER_DELTA` | Executed; approved | Operator; **SQUNO** | Production pack; decision record (examined) |
 | 2026-10-06 | T-2 v1.2 frozen; DEP-1/2/3/7/8 decided; Ruleset 8 frozen; M3 read | Approved; executed | **SQUNO**; operator | Spec; production output |
-| 2026-10-07 | Class A candidate (hardened application, migrations, tests); S0 `FROZEN` | Implemented; verified | AI builder; operator | Builder notes; project record |
-| 2026-10-07 to 12 | Phase 2 runs (HOLDs and PASSes); kits rc1 to rc9.3; reviews. On 7 October, two superseded Phase 3 attempts each made an allowed frozen-build restart before step 3.7 (§12). | Implemented, reviewed, executed | AI builder; reviewer agents and KORKI; operator | Builder notes; production pack listing |
+| 2026-10-07 | Class A candidate (hardened application, migrations, tests); S0 `FROZEN` | Implemented; verified | ASTER; operator | Builder notes; project record |
+| 2026-10-07 to 12 | Phase 2 runs (HOLDs and PASSes); kits rc1 to rc9.3; reviews. On 7 October, two superseded Phase 3 attempts each made an allowed frozen-build restart before step 3.7 (§12). | Implemented, reviewed, executed | ASTER; unattributed AI reviewers, then KORKI; operator | Builder notes; production pack listing |
 | 2026-10-07/08 | Phase 3: two HOLD attempts; cutover INCOMPLETE; completed PASS | Executed | Operator | Project records |
 | 2026-10-11 | DEP-11a floors set; Phase 4 attempt INCONCLUSIVE | Approved; executed | **SQUNO**; operator | Builder notes; project record |
-| 2026-10-12 | Phase 4 base: TC-1 PASS, 011e applied, HOLD at 4.6/4.7; SQUNO approves the fixes and the continuation path; DEP-11a record written and reviewed | Executed; approved; reviewed | Operator; **SQUNO**; reviewer | 13 October production diagnostic (examined, EV-15); decision record |
-| 2026-10-12 | Kits RC10 (after the base HOLD) to RC10.3 (after KORKI findings) | Implemented; reviewed | AI builder; KORKI | Builder notes |
+| 2026-10-12 | Phase 4 base: TC-1 PASS, 011e applied, HOLD at 4.6/4.7; SQUNO approves the fixes and the continuation path; DEP-11a record written and reviewed | Executed; approved; reviewed | Operator; **SQUNO**; KORKI (per builder notes; the amendment record itself was not examined) | 13 October production diagnostic (examined, EV-15); decision record |
+| 2026-10-12 | Kits RC10 (after the base HOLD) to RC10.3 (after KORKI findings) | Implemented; reviewed | ASTER; KORKI | Builder notes |
 | 2026-10-13 | Read-only pre-continuation diagnostic | Executed | Operator | Production transcript (examined) |
 | 2026-10-17 / 2026-10-20 | Phase 2 RC10.3 run 1 HOLD; run 2 PASS (executing pack for the continuation) | Executed | Operator | Closure draft |
 | 2026-11-01 | Continuation, Block D, §9.5 read, Block E | Executed; verified | Operator | Checked by Stage G (operator transcript); original reports not examined |
 | 2026-11-01 14:44 | Stage G: all checks PASS, draft written, `STAGE_G_EXIT=0` | Verified | Operator | Operator transcript (examined) |
 | 2026-11-01 14:50:50 | Stage F: eight attestations, `T2_CLOSED by SQUNO`, record `d93f78cc…` | Approved | **SQUNO** | Operator transcript (examined); record reconstructed, hash matches |
-| 2026-11-01 | KORKI checks the Stage G and Stage F transcripts after execution and recomputes the record hash and the 12-line change | Reviewed | KORKI (AI) | KORKI RC3 review (EV-28). This is a second-path AI review of operator-supplied output, not an audit. KORKI had no access to the production host or to the original Stage G, Block D, Block E and §9.5 report files. The reconstructed record it checked was built from the operator logs in KORKI's own handoff; ASTER recomputed its hash separately. |
+| 2026-11-01 | KORKI checks the Stage G and Stage F transcripts after execution and recomputes the record hash and the 12-line change | Reviewed | KORKI | KORKI RC3 review (EV-28). This is a second-path AI review of operator-supplied output, not an audit. KORKI had no access to the production host or to the original Stage G, Block D, Block E and §9.5 report files. The reconstructed record it checked was built from the operator logs in KORKI's own handoff; ASTER recomputed its hash separately. |
 
 "Operator" means the project operator, acting under SQUNO's written authorization. The builder notes name SQUNO as the operator.
+
+**Party** records who performed each act. Project-level responsibility is: build / engineering **SQUNO + ASTER**; review / verification **SQUNO + KORKI**; release authority **SQUNO** (see [README.md](README.md)).
 
 **HOLDs and failures are preserved, not erased:**
 - 6 Phase 2 HOLD packs;
@@ -322,7 +324,7 @@ As far as the operator transcript can show it, the reconstruction is byte-identi
 - the Phase 4 base HOLD;
 - the D3 gate HOLD and its verifier FAIL.
 
-**Defects found in the builder's kits during review:**
+**Defects found in ASTER's kits during review:**
 - verifier paths that would accept forged packs;
 - an offset edge case;
 - false TC-1 violations;

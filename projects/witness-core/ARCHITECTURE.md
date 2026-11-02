@@ -143,7 +143,7 @@ flowchart LR
 **Logs are not evidence (P10, specified):**
 - Evidence lives in the database.
 - Logs must not hold full payloads, and they must be rotated with restricted permissions.
-- The Phase 4 base run went to HOLD at this step (4.6): the log-control script did not verify (13 October production diagnostic). The builder diagnosed a log-file permission precondition in the kit (builder notes).
+- The Phase 4 base run went to HOLD at this step (4.6): the log-control script did not verify (13 October production diagnostic). ASTER diagnosed a log-file permission precondition in the kit (builder notes).
 - The Phase 4 continuation of 1 November 2026 applied a corrected log-rotation configuration as its only production write. Stage G's re-run of the continuation verifier passed (operator transcript).
 
 **Evidence packs.** Each T-2 phase run writes one sealed evidence pack:
@@ -157,15 +157,24 @@ Later packs bind earlier ones by hash. A few production reads produced no pack; 
 
 ## 9. Architectural leadership and design accountability
 
+**Project-level responsibility.**
+- Architecture and project authority: **SQUNO**.
+- Build / engineering: **SQUNO + ASTER**.
+- Review / verification: **SQUNO + KORKI**.
+- Release authority: **SQUNO**.
+
+The table below records the individual acts and who performed them.
+
 | Act | Party | Evidence |
 | --- | --- | --- |
 | Architecture and boundaries (Core vs projection vs Season; raw vs semantic; lineage model) | Specified in rev47, bylined to SQUNO. Drafting not attributed (see below). | rev47 |
 | rev47 freeze (2026-09-26) | The freeze is stated in the revision itself. The preceding rev42 "awaits SQUNO's acceptance", so SQUNO's acceptance is inferred; no separate acceptance record was examined. | rev42, rev47 |
 | D1–D6 | The spec text gives the recommendations (drafting not attributed). SQUNO decided D3 (decision v2, `CLOSED_WITH_CUTOVER_DELTA`, 2026-10-06; see [T2_CLOSURE.md](T2_CLOSURE.md) §11). SQUNO decided D4–D6 on 2026-10-06 (DEP-1 to DEP-3). For D1 and D2, rev47 reserves the decision for SQUNO and their outcomes are in T-2 v1.2, which SQUNO froze. No separate decision record names the decider. | rev47 p24; T-2 spec; D3 decision v2 |
-| T-2 decisions DEP-7 and DEP-8 (2026-10-06), DEP-11 values, DEP-11a amendment (2026-10-11/12) | **SQUNO**. The DEP-11a mechanism was designed and implemented by the AI builder and reviewed by KORKI (builder notes). | T-2 spec (DEP-7, DEP-8, DEP-11); builder notes and the closure record's hash binding `272ed35b…` (DEP-11a; the amendment file itself was not examined) |
+| T-2 decisions DEP-7 and DEP-8 (2026-10-06), DEP-11 values, DEP-11a amendment (2026-10-11/12) | **SQUNO**. The DEP-11a mechanism was designed and implemented by ASTER and reviewed by KORKI (builder notes). | T-2 spec (DEP-7, DEP-8, DEP-11); builder notes and the closure record's hash binding `272ed35b…` (DEP-11a; the amendment file itself was not examined) |
 | Freezes: T-2 v1.2 (2026-10-06), S0 (2026-10-07) | **SQUNO** (T-2 lifecycle line); S0 run under SQUNO's authorization | T-2 spec; S0 record |
-| Hardened application code, migrations, tests, kits, verifiers | AI builder (Claude / ASTER) | Builder notes |
-| Review | KORKI (AI) from 12 October; unnamed separate reviewer agents before that | Review records |
+| Hardened application code, migrations, tests, kits, verifiers | ASTER (Builder Support), under SQUNO's architectural direction and authorization | Builder notes |
+| Review | KORKI (Reviewer & Solution Support) from 12 October; unattributed AI reviewers before that | Review records |
+| Acceptance of results | **SQUNO** | Decision records; Stage F |
 | Production execution | Project operator under SQUNO's written authorization (builder notes name SQUNO) | Authorization records |
 
 **Specification drafting.** The specifications are bylined to SQUNO. Their text is written in the first person and refers to SQUNO as the decider ("requires SQUNO's decision"). The records do not establish who drafted the text, whether by hand or with AI assistance. These documents therefore attribute the architectural **decisions and approvals** to SQUNO, and do not attribute the drafting.

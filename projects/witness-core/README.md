@@ -13,12 +13,20 @@
 > Statements that still depend only on the owner's word are marked *(owner-reported)*.
 
 **SQUNO — Founder, Lead Architect & Project Owner | SBA / D_LAB**
-**Engineering decisions and release authority:** SQUNO
 
-**Development method:** founder-led, AI-assisted engineering.
+| Project responsibility | Party |
+| --- | --- |
+| Project owner & lead architect | **SQUNO** |
+| Build / engineering | **SQUNO + ASTER**. SQUNO: architecture, direction, engineering decisions and oversight. ASTER: implementation and builder support. |
+| Review / verification | **SQUNO + KORKI**. SQUNO: owner review, decisions and final acceptance. KORKI: technical review and solution support. |
+| Release authority | **SQUNO** |
+
+**Development method:** founder-led, AI-assisted engineering. ASTER (Builder Support) and KORKI (Reviewer & Solution Support) are AI support systems that work under SQUNO's direction. Neither is a project owner or an independent authority.
 - **SQUNO** set the scope, decided the recorded design options, authorized the T-2 production steps in writing and accepted the results.
-- **An AI builder** (Claude, named ASTER from October 2026) wrote the hardened application changes, the migrations, the tests and the operational kits.
-- **A separate AI reviewer** (KORKI) reviewed the T-2 kits before they were used.
+- **ASTER** implemented the hardened application changes, the migrations, the tests and the operational kits, under SQUNO's architectural direction and authorization.
+- **KORKI** reviewed the T-2 kits before they were used, as a review path separate from ASTER's implementation work. Before 12 October, unattributed AI reviewers did this work.
+
+Shared responsibility does not mean identical contributions. "Who did what" below records who performed each action, as far as the evidence shows. It does not credit SQUNO with writing code or with repeating KORKI's checks.
 
 Most steps are recorded in hash-bound evidence packs. The known exceptions are listed in [EVIDENCE_INDEX.md](EVIDENCE_INDEX.md).
 
@@ -98,19 +106,19 @@ Proof Season is a planned system. It would apply season rules (Ruleset 8, R01–
 
 | Role | Party | Basis |
 | --- | --- | --- |
-| Founder, Lead Architect, Project Owner | **SQUNO** | Owner statement; consistent with every decision record |
-| Recorded design decisions | **SQUNO**: D3; D4–D6 (as DEP-1 to DEP-3); DEP-7; DEP-8; the DEP-11 values; the DEP-11a amendment; T-2 v1.2 freeze; Ruleset 8 freeze. Several were AI-builder proposals that SQUNO approved. | Decision records |
-| Other closures | DEP-4, DEP-5 and DEP-6 closed through S0 gate results. KORKI chose the variant of the final read-only database check. | T-2 spec; review records |
+| Founder, Lead Architect & Project Owner | **SQUNO** | Owner statement; consistent with every decision record |
+| Recorded design decisions | **SQUNO**: D3; D4–D6 (as DEP-1 to DEP-3); DEP-7; DEP-8; the DEP-11 values; the DEP-11a amendment; T-2 v1.2 freeze; Ruleset 8 freeze. Several were ASTER proposals that SQUNO approved. | Decision records |
+| Other closures | DEP-4, DEP-5 and DEP-6 closed through S0 gate results. KORKI chose the variant (B) of the final read-only database check (§9.5). The read ran under SQUNO's written DEP-9 authorization. | T-2 spec; review records; read package |
 | Specifications (published versions) | Bylined to **SQUNO**. The records do not establish who drafted the text, whether by hand or with AI assistance. The text is written in the first person and refers to SQUNO as the decider. | Spec title pages; text |
-| Hardened application code, migrations 011a–011e, tests, kits, verifiers, operator packages | **AI builder** (Claude; named "Aster"/ASTER from 13 October 2026) | Builder notes |
+| Hardened application code, migrations 011a–011e, tests, kits, verifiers, operator packages | **ASTER** (Builder Support), under SQUNO's architectural direction and authorization. Builder records use the name ASTER from 13 October 2026. Earlier builder notes name the same builder by its model name. | Builder notes; provenance register |
 | Pre-hardening application code (before September 2026) | Not established | No authorship record |
-| Production execution | The project operator, after SQUNO's written authorization of each step. The builder notes name SQUNO as the operator. The builder had no production access. | Authorization records; builder notes |
-| Review of the T-2 kits before use | **KORKI** (AI reviewer, separate from the builder) from 12 October; unnamed separate reviewer agents before that. Reviews were offline, on packages and fixtures. | Review records |
+| Production execution | The project operator, after SQUNO's written authorization of each step. The builder notes name SQUNO as the operator. ASTER had no production access. | Authorization records; builder notes |
+| Review of the T-2 kits before use | **KORKI** (Reviewer & Solution Support; a review path separate from ASTER) from 12 October; unattributed AI reviewers before that. Reviews were offline, on packages and fixtures. Each production step still required SQUNO's written authorization. | Review records; authorization records |
 | Acceptance of results and T-2 closure | **SQUNO** | Decision records; Stage F transcript and reconstructed closure record |
-| Post-execution check of closure | **KORKI** (AI) prepared the November 1 handoff without host access, reconstructing the closure record and the Stage G draft from the operator-supplied terminal logs. KORKI reports that it checked the Stage G and Stage F transcripts and recomputed the 73-line record's SHA256 and its 12-line change. ASTER recomputed both separately. This is a second-path AI review of operator-supplied output, partly of KORKI's own reconstruction. It had no host access and is not an audit. | KORKI RC3 review; handoff provenance note |
-| This documentation | Drafted by ASTER (AI). KORKI reviewed RC3 and RC4, both receiving HOLD. This subsequent owner-authorized public release has not yet undergone independent review. SQUNO authorized publication with disclosed evidence limitations. Publication does not imply KORKI PASS or external certification. | KORKI RC3 review (EV-28). The RC4 verdict is *(owner-reported)*: the RC4 review record is not in the evidence index. |
+| Post-execution check of closure | **KORKI** prepared the November 1 handoff without host access, reconstructing the closure record and the Stage G draft from the operator-supplied terminal logs. KORKI reports that it checked the Stage G and Stage F transcripts and recomputed the 73-line record's SHA256 and its 12-line change. ASTER recomputed both separately. This is a second-path AI review of operator-supplied output, partly of KORKI's own reconstruction. It had no host access and is not an audit. | KORKI RC3 review; handoff provenance note |
+| This documentation | Drafted by ASTER under SQUNO's direction. KORKI reviewed RC3 and RC4, both receiving HOLD. This subsequent owner-authorized public release has not yet undergone independent review. SQUNO authorized publication with disclosed evidence limitations. Publication does not imply KORKI PASS or external certification. | KORKI RC3 review (EV-28). The RC4 verdict is *(owner-reported)*: the RC4 review record is not in the evidence index. |
 
-No other contributors are credited, and no corporate titles are claimed. The same AI identity built the kits and drafted this documentation; see [LIMITATIONS.md](LIMITATIONS.md) §11.
+No other contributors are credited, and no corporate titles are claimed. ASTER both implemented the kits and drafted this documentation; see [LIMITATIONS.md](LIMITATIONS.md) §11.
 
 **Role glossary.**
 

@@ -65,10 +65,11 @@ Specific limits:
 | Level | What it is | Status |
 | --- | --- | --- |
 | First-party verification | The project's own gates, verifiers and evidence packs | Recorded for every phase |
-| Second-path AI review | KORKI, an AI reviewer separate from the builder. Before 12 October, unnamed separate reviewer agents. | Reviewed the T-2 kits, operator packages and closure package before use, offline, on packages and fixtures. Its pre-execution closure review says production evidence was still pending, and that its test replay was partial (23/23 targeted; the full suite was not completed in one run). After execution, KORKI prepared the November 1 handoff by reconstructing the closure record from the operator logs. It reports that it checked the Stage G and Stage F transcripts and recomputed the closure-record hash and its 12-line change; ASTER recomputed both separately. KORKI had no access to the production host or to the original Stage G, Block D, Block E or §9.5 report files. |
+| Second-path AI review | KORKI (Reviewer & Solution Support), an AI review path separate from ASTER. Before 12 October, unattributed AI reviewers. | Reviewed the T-2 kits, operator packages and closure package before use, offline, on packages and fixtures. Its pre-execution closure review says production evidence was still pending, and that its test replay was partial (23/23 targeted; the full suite was not completed in one run). After execution, KORKI prepared the November 1 handoff by reconstructing the closure record from the operator logs. It reports that it checked the Stage G and Stage F transcripts and recomputed the closure-record hash and its 12-line change; ASTER recomputed both separately. KORKI had no access to the production host or to the original Stage G, Block D, Block E or §9.5 report files. |
+| Owner review and acceptance | SQUNO's decisions on results, fixes, authorizations and closure | Recorded in decision and authorization records. It is not an independent re-run of KORKI's checks. |
 | External third-party audit | An independent firm's audit | **None has taken place** |
 
-None of these levels is a certification. No human or external party has reviewed this documentation. KORKI, itself an AI system, reviewed RC3 and RC4, both receiving HOLD (§13). This subsequent owner-authorized public release has not yet undergone independent review. SQUNO authorized publication with disclosed evidence limitations. Publication does not imply KORKI PASS or external certification.
+None of these levels is a certification. No external party has reviewed this documentation. SQUNO, as owner, issued corrections to it and authorized its publication. KORKI, itself an AI system, reviewed RC3 and RC4, both receiving HOLD (§13). This subsequent owner-authorized public release has not yet undergone independent review. SQUNO authorized publication with disclosed evidence limitations. Publication does not imply KORKI PASS or external certification.
 
 ## 7. SEC-01: privileged access
 
@@ -99,15 +100,19 @@ Restart behaviour and supervision are separate questions:
 
 ## 11. AI involvement and independence
 
-- **What the AI builder wrote:**
+- **Responsibility structure.** Build / engineering is **SQUNO + ASTER**, and review / verification is **SQUNO + KORKI**. Shared responsibility does not mean identical contributions:
+  - SQUNO provides the architecture, direction, decisions, authorization and acceptance;
+  - ASTER and KORKI are AI support systems;
+  - the records do not show SQUNO writing the code or re-running KORKI's checks.
+- **What ASTER implemented** (Builder Support, under SQUNO's architectural direction and authorization):
   - the hardened application changes;
   - migrations 011a–011e;
   - the tests, kits, verifiers and operator packages;
   - the closure draft, rendered in advance.
-- **Its local tests are not evidence.** They ran on fixtures and stubs, and the builder labels them that way itself.
-- **The same AI identity drafted this documentation.** KORKI reviewed RC3 and RC4, both receiving HOLD. This owner-authorized release has not yet undergone independent review (§13).
+- **Its local tests are not evidence.** They ran on fixtures and stubs, and ASTER labels them that way itself.
+- **ASTER also drafted this documentation.** KORKI reviewed RC3 and RC4, both receiving HOLD. This owner-authorized release has not yet undergone independent review (§13).
 - **Production runs.** These were authorized by SQUNO through recorded authorizations. The builder notes name SQUNO as the operator; that SQUNO personally typed each run is *(owner-reported)*.
-- **Decisions.** The recorded decisions are SQUNO's. Several began as proposals from the AI builder that SQUNO approved.
+- **Decisions.** The recorded decisions are SQUNO's. Several began as proposals from ASTER that SQUNO approved.
 
 ## 12. Proof Season boundary
 
